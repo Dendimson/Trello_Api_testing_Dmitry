@@ -16,9 +16,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Pull code from repo
+        uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v5
+      - name: Install node.js
+        uses: actions/setup-node@v5
         with:
           node-version: 24
 
