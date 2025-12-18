@@ -25,4 +25,5 @@ jobs:
           node-version: 24
 
       - name: Install newman + htmlextra reporter
-        run: npm i -g newman newman-reporter-htmlextra
+        run: |
+          npm install -g newman newman-reporter-htmlextra
