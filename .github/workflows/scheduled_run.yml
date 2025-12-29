@@ -36,8 +36,9 @@ jobs:
       - name: Run Newman Tests with CLI and HTML Reports
 
         env:
-         key: ${{ secrets.key}}
-         token: ${{ secrets.token }}
+         baseUrl: ${{ secrets.BASEURL }}
+         key: ${{ secrets.KEY }}
+         token: ${{ secrets.TOKEN }}
         run: |
           newman run Trello_Api_Dmitry.postman_collection.json \
           -e TrelloApiEnvironment.postman_environment.json \
