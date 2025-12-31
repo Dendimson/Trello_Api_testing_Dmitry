@@ -41,10 +41,9 @@ jobs:
           TOKEN: ${{ secrets.TOKEN }}
         run: |
           newman run Trello_Api_Dmitry.postman_collection.json \
-          -e TrelloApiEnvironment.postman_environment.json \
-          --env-var "baseUrl=$BASEURL"\
-          --env-var "key=$KEY"\
-          --env-var "token=$TOKEN"\
+          --env-var "baseUrl=$BASEURL" \
+          --env-var "key=$KEY" \
+          --env-var "token=$TOKEN" \
           -r cli,htmlextra \
           --reporter-htmlextra-export ./reports/Trello_Api_Dmitry.postman_collection.html
       - name: Upload HTML Report
