@@ -39,7 +39,7 @@ jobs:
           BASEURL: ${{ secrets.BASEURL }}
           KEY: ${{ secrets.KEY }}
           TOKEN: ${{ secrets.TOKEN }}
-          run: |
+        run: |
             newman run Trello_Api_Dmitry.postman_collection.json \
             -e TrelloApiEnvironment.postman_environment.json \
             --env-var "baseUrl=$BASEURL" \
@@ -47,7 +47,6 @@ jobs:
             --env-var "token=$TOKEN" \
             -r cli,htmlextra \
             --reporter-htmlextra-export ./reports/Trello_Api_Dmitry.postman_collection.html
-
       - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v6
