@@ -36,14 +36,17 @@ jobs:
       - name: Run Newman Tests with CLI and HTML Reports
 
         env:
-         key: ${{ secrets.key}}
-         token: ${{ secrets.token }}
+          BASEURL: ${{ secrets.BASEURL }}
+          KEY: ${{ secrets.KEY }}
+          TOKEN: ${{ secrets.TOKEN }}
         run: |
           newman run Trello_Api_Dmitry.postman_collection.json \
           -e TrelloApiEnvironment.postman_environment.json \
+          --env-var "baseUrl=${BASEURL}" \
+          --env-var "key=${KEY}" \
+          --env-var "token=${TOKEN}" \
           -r cli,htmlextra \
           --reporter-htmlextra-export ./reports/Trello_Api_Dmitry.postman_collection.html
-
       - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v6
