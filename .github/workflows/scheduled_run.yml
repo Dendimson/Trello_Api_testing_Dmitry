@@ -53,3 +53,17 @@ jobs:
         with:
           name: Trello_Api_Dmitry.postman_collection-test-report
           path: reports/Trello_Api_Dmitry.postman_collection.html
+
+      - name: Send report via email
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          to: dendimson@gmail.com
+          subject: test result
+          from: GitHub Actions <actions@example.com>
+          attachments: reports/Trello_Api_Dmitry.postman_collection.html
