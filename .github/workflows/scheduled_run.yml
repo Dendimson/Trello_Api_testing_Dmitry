@@ -66,4 +66,4 @@ jobs:
           to: dendimson@gmail.com
           subject: test result
           from: GitHub Actions <actions@example.com>
-          attachments: Trello_Api_Dmitry.postman_collection.html
+          attachments: reports/Trello_Api_Dmitry.postman_collection.html
